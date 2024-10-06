@@ -6,11 +6,11 @@ router = APIRouter()
 
 @router.get("/")
 async def read_root():
-    return {"message": "Hello World"}
+    return {"message": "Flying to the stars..."}
 
 
-@router.post("/", response_model=ModifiedOutputModelBase)
-async def generate(input: InputBaseModel):
+@router.post("/{date}", response_model=ModifiedOutputModelBase)
+async def generate(date: str, input: InputBaseModel):
     def normalize(value, min_value, max_value):
         return 1 + (value - min_value) * (5 - 1) / (max_value - min_value)
 
@@ -58,5 +58,6 @@ async def generate(input: InputBaseModel):
             },
             by_alias=True,
         ),
-        disasters=average
+        disasters=average,
+        date=date
     )

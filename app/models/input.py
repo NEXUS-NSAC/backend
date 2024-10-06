@@ -48,6 +48,7 @@ class OutputBaseModel(InputBaseModel):
 
 class ModifiedOutputModelBase(OutputBaseModel):
     diasasters: Optional[int] = Field(0, alias="disasters")
+    date: Optional[str] = Field(None, alias="date")
 
     class Config:
         populate_by_alias = True
