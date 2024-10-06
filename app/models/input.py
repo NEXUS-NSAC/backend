@@ -34,3 +34,13 @@ class InputBaseModel(BaseModel):
 
     class Config:
         populate_by_alias = True
+
+
+class OutputBaseModel(InputBaseModel):
+    animal_impact: Optional[int] = Field(0, alias="animalImpact")
+    human_impact: Optional[int] = Field(0, alias="humanImpact")
+    tree_impact: Optional[int] = Field(0, alias="treeImpact")
+    aquatic_impact: Optional[int] = Field(0, alias="aquaticImpact")
+
+    class Config:
+        populate_by_alias = True
