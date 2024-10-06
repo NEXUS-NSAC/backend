@@ -44,3 +44,10 @@ class OutputBaseModel(InputBaseModel):
 
     class Config:
         populate_by_alias = True
+
+
+class ModifiedOutputModelBase(OutputBaseModel):
+    diasasters: Optional[int] = Field(0, alias="disasters")
+
+    class Config:
+        populate_by_alias = True
